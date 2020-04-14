@@ -1,0 +1,81 @@
+@media screen and (min-width: 1200px) {
+  .login {
+    .login-right-form {
+      padding: 6vh 0 0 !important;
+    }
+    .login-submit {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1000px) {
+  .login {
+    .login-box {
+      width: 65% !important;
+    }
+    .login-right-title {
+      display: none;
+    }
+    .login-right-form {
+      padding: 15px 0 0 !important;
+    }
+    .login-submit {
+      button {
+        height: 32px;
+        padding: 0 20px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 850px) {
+  .login {
+    .login-box {
+      width: 75% !important;
+    }
+    .login-right-title {
+      display: none;
+    }
+    .login-right-form {
+      padding: 15px 0 0 !important;
+    }
+    .el-form-item__label {
+      display: none;
+    }
+    .login-submit {
+      margin-bottom: 15px;
+      button {
+        height: 32px;
+        padding: 0 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 699px) {
+  .login {
+    .login-right-title {
+      font-size: 18px !important;
+    }
+    .jxg-login {
+      height: 80% !important;
+      width: 85% !important;
+      max-height: 550px;
+      min-height: 450px;
+      flex-wrap: wrap;
+    }
+    .login-right,
+    .login-left {
+      width: 100% !important;
+    }
+    .el-form-item__label {
+      display: none;
+    }
+    .login-submit {
+      margin-bottom: 15px;
+      button {
+        height: 32px;
+        padding: 0 20px;
+      }
+    }
+  }
+}

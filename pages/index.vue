@@ -16,8 +16,7 @@
         >
           Documentation
         </a>
-
-          <nuxt-link to="/login">登录</nuxt-link>
+        <nuxt-link to="/login">登录</nuxt-link>
       </div>
     </div>
   </div>
