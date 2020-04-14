@@ -1,5 +1,5 @@
 <template>
-  <div class="aside" style="height: 100%">
+  <div class="aside">
     <el-scrollbar style="height: 100%">
       <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :unique-opened="true" @open="handleOpen" @close="handleClose"
                :collapse="isCollapse">
@@ -100,6 +100,7 @@
     transition: width .2s;
     box-sizing: border-box;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
+    padding: 12px 0;
   }
 
   .el-menu-vertical-demo.el-menu {

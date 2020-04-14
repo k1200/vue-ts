@@ -1,10 +1,8 @@
 <template>
-  <el-header class="simpleHeader">
     <div class="header-main">
       <span class="top-logo"><img src="~assets/images/logo.png" alt=""/></span>
       <span class="top-title">商家后台</span>
     </div>
-  </el-header>
 </template>
 
 <script lang="ts">
@@ -14,12 +12,7 @@ export default class SimpleHeader extends Vue {}
 </script>
 
 <style scoped lang="scss">
-.simpleHeader {
-  width: 100%;
-  height: 80px !important;
-  line-height: 80px;
-  background-color: #fff;
-}
+
 .header-main {
   width: $width;
   margin: auto;
