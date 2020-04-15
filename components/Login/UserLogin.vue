@@ -11,6 +11,7 @@
       <el-input
         v-model="loginForm.username"
         placeholder="请输入账号"
+        @keyup.enter.native="submitForm('loginForm')"
         @input="loginForm.username = loginForm.username.replace(/\s/g, '')"
       />
     </el-form-item>
@@ -19,10 +20,12 @@
         v-model="loginForm.password"
         prop="password"
         placeholder="请输入密码"
+        @keyup.enter.native="submitForm('loginForm')"
         @input="
-          loginForm.password = loginForm.password
-            .replace(/\s/g, '')
-            .replace(/[\u4e00-\u9fa5]/g, '')
+          loginForm.password = loginForm.password.replace(
+            /\s|[\u4e00-\u9fa5]/g,
+            ''
+          )
         "
       />
     </el-form-item>

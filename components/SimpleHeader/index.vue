@@ -1,8 +1,8 @@
 <template>
-    <div class="header-main">
-      <span class="top-logo"><img src="~assets/images/logo.png" alt=""/></span>
-      <span class="top-title">商家后台</span>
-    </div>
+  <div class="header-main">
+    <span class="top-logo"><img src="~assets/images/logo.png" alt=""/></span>
+    <span class="top-title">商家后台</span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,9 +12,11 @@ export default class SimpleHeader extends Vue {}
 </script>
 
 <style scoped lang="scss">
-
 .header-main {
   width: $width;
+  @media screen and (min-width: 750px) and (max-width: 1080px) {
+    width: 700px;
+  }
   margin: auto;
 }
 .top-logo img {
