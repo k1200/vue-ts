@@ -1,8 +1,14 @@
 <template>
   <div class="aside">
-    <el-scrollbar style="height: 100%">
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :unique-opened="true" @open="handleOpen" @close="handleClose"
-               :collapse="isCollapse">
+    <el-scrollbar style="height: 100%" class="page-scrollbar-hidden-x">
+      <el-menu
+        default-active="1-4-1"
+        class="el-menu-vertical-demo"
+        :unique-opened="true"
+        @open="handleOpen"
+        @close="handleClose"
+        :collapse="isCollapse"
+      >
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -73,40 +79,40 @@
 </template>
 
 <script>
-	export default {
-		name: "Aside",
-		data() {
-			return {
-				isCollapse: false
-			};
-		},
-		methods: {
-			handleOpen(key, keyPath) {
-				console.log(key, keyPath);
-			},
-			handleClose(key, keyPath) {
-				console.log(key, keyPath);
-			}
-		}
-	}
+export default {
+  name: 'Aside',
+  data() {
+    return {
+      isCollapse: false
+    }
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath)
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath)
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
-  .aside {
-    user-select: none;
-    position: relative;
-    height: 100%;
-    background-color: #fff;
-    transition: width .2s;
-    box-sizing: border-box;
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
-    padding: 12px 0;
-  }
+.aside {
+  user-select: none;
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  transition: width 0.2s;
+  box-sizing: border-box;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
+  padding: 12px 0;
+}
 
-  .el-menu-vertical-demo.el-menu {
-    border: none;
-  }
-  .el-menu {
-    padding-right: 17px;
-  }
+.el-menu-vertical-demo.el-menu {
+  border: none;
+}
+.el-menu {
+  padding-right: 17px;
+}
 </style>

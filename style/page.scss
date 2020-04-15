@@ -45,3 +45,9 @@
 .page-leave-active {
   opacity: 0;
 }
+.page-scrollbar-hidden-x,
+.page-scrollbar-hidden-y {
+  .el-scrollbar__wrap {
+    overflow-x: hidden;
+  }
+}

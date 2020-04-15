@@ -13,7 +13,10 @@
         </el-header>
         <el-main id="page-main">
           <div id="main-scrollbar">
-            <el-scrollbar style="height: calc(100% - 5px)">
+            <el-scrollbar
+              style="height: calc(100% - 5px)"
+              class="page-scrollbar-hidden-x"
+            >
               <div id="components">
                 <nuxt />
               </div>
