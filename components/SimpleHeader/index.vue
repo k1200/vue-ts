@@ -17,14 +17,23 @@ export default class SimpleHeader extends Vue {}
   @media screen and (min-width: 750px) and (max-width: 1080px) {
     width: 700px;
   }
+  @media screen and(min-width: 500px) and (max-width: 750px) {
+    width: 500px;
+  }
   margin: auto;
 }
 .top-logo img {
   height: 50px;
+  @media screen and (max-width: 750px) {
+    height: 24px;
+  }
   vertical-align: middle;
 }
 .top-title {
   font-size: 28px;
+  @media screen and (max-width: 750px) {
+    font-size: 18px;
+  }
   font-weight: bold;
   color: #666;
   margin: 0;
@@ -36,6 +45,10 @@ export default class SimpleHeader extends Vue {}
     vertical-align: middle;
     margin: 0 30px;
     border-right: 1px solid #dcdfe6;
+    @media screen and (max-width: 750px) {
+      height: 20px;
+      margin: 0 12px;
+    }
   }
 }
 </style>

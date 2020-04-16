@@ -1,6 +1,6 @@
 <template>
   <el-container class="register-container">
-    <el-header class="simpleHeader">
+    <el-header class="simpleHeader page-simple-header">
       <simple-header />
     </el-header>
     <el-main class="register">
@@ -359,27 +359,47 @@ export default class Regiser extends Vue {
 }
 .simpleHeader {
   width: 100%;
-  height: 80px !important;
-  line-height: 80px;
   background-color: #fff;
+  @media screen and (min-width: 851px) {
+    height: 80px !important;
+    line-height: 80px;
+  }
+  @media screen and (min-width: 750px) and (max-width: 850px) {
+    height: 60px !important;
+    line-height: 60px;
+  }
 }
 .register {
   padding: 42px 0 0;
+  @media screen and (max-width: 750px) {
+    padding: 18px 0 0;
+  }
 }
 .register-form-box {
   width: $width;
-  @media screen and (min-width: 750px) and (max-width: 1080px) {
-    width: 700px;
-  }
   margin: auto;
   background-color: #fff;
   padding: 32px 0;
   height: 100%;
+  @media screen and (min-width: 750px) and (max-width: 1080px) {
+    width: 700px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 750px) {
+    width: 500px;
+    padding: 12px 0;
+  }
+  @media screen and (max-width: 499px) {
+    width: 90%;
+    padding-bottom: 0;
+  }
 }
 .register-form {
   width: 365px;
   margin: auto;
   text-align: center;
+  @media screen and (max-width: 499px) {
+    width: 90%;
+  }
 }
 .register-title {
   color: $color;
@@ -388,6 +408,10 @@ export default class Regiser extends Vue {
   font-size: 22px;
   text-align: center;
   letter-spacing: 4px;
+  @media screen and (max-width: 750px) {
+    margin-bottom: 28px;
+    font-size: 18px;
+  }
 }
 .register-submit {
   width: 100%;
