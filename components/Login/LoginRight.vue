@@ -13,7 +13,7 @@
       <div class="login-right-footer">
         <el-row type="flex" justify="space-between">
           <nuxt-link to="/register">立即注册</nuxt-link>
-          <span>忘记密码</span>
+          <nuxt-link to="/forgetPass">忘记密码</nuxt-link>
         </el-row>
         <el-row style="margin-top: 12px" type="flex" justify="flex-end">
           <span>—— 第三方登录</span>
