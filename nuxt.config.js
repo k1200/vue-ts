@@ -36,8 +36,11 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/style-resources' // 添加对应的模块
+    '@nuxtjs/style-resources', // 添加对应的模块
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {},
   /*
    ** Build configuration
    */

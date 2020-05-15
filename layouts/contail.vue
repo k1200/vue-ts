@@ -29,9 +29,9 @@
   </el-container>
 </template>
 <script>
-import PageHeader from '~/components/Header'
-import PageAside from '~/components/Aside'
-import Tags from '~/components/Tags'
+import PageHeader from '~/components/layouts/Header'
+import PageAside from '~/components/layouts/Aside'
+import Tags from '~/components/layouts/Tags'
 
 export default {
   name: 'contail',

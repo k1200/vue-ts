@@ -1,148 +1,135 @@
 <template>
-  <el-container class="forgetPass-container">
-    <el-header class="simpleHeader page-simple-header">
-      <simple-header />
-    </el-header>
-    <el-main class="forgetPass">
-      <div class="forgetPass-form-box">
-        <h4 class="forgetPass-title">忘记密码</h4>
-        <el-row style="height: calc(100% - 70px);">
-          <el-scrollbar style="height: 100%;" class="page-scrollbar-hidden-x">
-            <el-form
-              class="forgetPass-form"
-              status-icon
-              :rules="forgetPassRules"
-              ref="forgetPassForm"
-              :model="forgetPassForm"
-              label-width="0"
-              v-error-focus="validateState"
+  <div class="forgetPass-form-box">
+    <h4 class="forgetPass-title">忘记密码</h4>
+    <el-row style="height: calc(100% - 70px);">
+      <el-scrollbar style="height: 100%;" class="page-scrollbar-hidden-x">
+        <el-form
+          class="forgetPass-form"
+          status-icon
+          :rules="forgetPassRules"
+          ref="forgetPassForm"
+          :model="forgetPassForm"
+          label-width="0"
+          v-error-focus="validateState"
+        >
+          <div style="position: absolute; z-index: -1;opacity: 0">
+            <input type="text" />
+            <input type="password" />
+          </div>
+          <el-form-item prop="contactNumber">
+            <el-input
+              class="contactNumber"
+              @keyup.enter.native="submit"
+              v-model="forgetPassForm.contactNumber"
+              auto-complete="off"
+              maxlength="11"
+              placeholder="请输入手机号码"
+              @input="
+                forgetPassForm.contactNumber = forgetPassForm.contactNumber.replace(
+                  /[^0-9]/g,
+                  ''
+                )
+              "
             >
-              <div style="position: absolute; z-index: -1;opacity: 0">
-                <input type="text" />
-                <input type="password" />
-              </div>
-              <el-form-item prop="contactNumber">
-                <el-input
-                  class="contactNumber"
-                  @keyup.enter.native="submit"
-                  v-model="forgetPassForm.contactNumber"
-                  auto-complete="off"
-                  maxlength="11"
-                  placeholder="请输入手机号码"
-                  @input="
-                    forgetPassForm.contactNumber = forgetPassForm.contactNumber.replace(
-                      /[^0-9]/g,
-                      ''
-                    )
-                  "
-                >
-                  <el-select
-                    class="tel-code"
-                    v-model="telCode"
-                    slot="prepend"
-                    placeholder="请选择"
-                    style="width: 80px;"
-                  >
-                    <el-option label="+86" value="86">+86</el-option>
-                    <el-option label="+120" value="120">+120</el-option>
-                    <el-option label="+107" value="107">+107</el-option>
-                  </el-select>
-                </el-input>
-              </el-form-item>
-              <el-form-item prop="code">
-                <el-input
-                  @keyup.enter.native="submit"
-                  v-model="forgetPassForm.code"
-                  autocomplete="off"
-                  maxlength="6"
-                  placeholder="请输入验证码"
-                >
-                  <el-button
-                    type="text"
-                    :disabled="!canGetcode"
-                    slot="append"
-                    class="get-code"
-                    :class="canGetcode ? 'canGetcode' : ''"
-                    @click.stop="getCode"
-                    @input="
-                      forgetPassForm.code = forgetPassForm.code.replace(
-                        /\s/g,
-                        ''
-                      )
-                    "
-                    >{{ codeTip }}</el-button
-                  >
-                </el-input>
-              </el-form-item>
-              <el-form-item prop="password" ref="password">
-                <el-input
-                  @keyup.enter.native="submit"
-                  :type="showPassword ? 'text' : 'password'"
-                  v-model="forgetPassForm.password"
-                  auto-complete="off"
-                  maxlength="15"
-                  placeholder="请输入新密码"
-                  @input="
-                    forgetPassForm.password = forgetPassForm.password.replace(
-                      /\s|[\u4e00-\u9fa5]/g,
-                      ''
-                    )
-                  "
-                >
-                  <i
-                    class="el-icon-view el-input__icon"
-                    :class="showPassword ? 'font-color' : ''"
-                    slot="suffix"
-                    @click="showPassword = !showPassword"
-                  ></i>
-                </el-input>
-              </el-form-item>
-              <el-form-item prop="nextPassword" ref="nextPassword">
-                <el-input
-                  @keyup.enter.native="submit"
-                  :type="showNextPassword ? 'text' : 'password'"
-                  v-model="forgetPassForm.nextPassword"
-                  autocomplete="off"
-                  maxlength="15"
-                  placeholder="请再次输入新密码"
-                  @input="
-                    forgetPassForm.password = forgetPassForm.password.replace(
-                      /\s[\u4e00-\u9fa5]/g,
-                      ''
-                    )
-                  "
-                >
-                  <i
-                    class="el-icon-view el-input__icon"
-                    :class="showNextPassword ? 'font-color' : ''"
-                    slot="suffix"
-                    @click="showNextPassword = !showNextPassword"
-                  ></i>
-                </el-input>
-              </el-form-item>
-              <el-form-item style="margin: 28px 0 0 0">
-                <el-button
-                  type="primary"
-                  @click.native.prevent="submit"
-                  class="forgetPass-submit"
-                  >提 交
-                </el-button>
-              </el-form-item>
-            </el-form>
-          </el-scrollbar>
-        </el-row>
-      </div>
-    </el-main>
-  </el-container>
+              <el-select
+                class="tel-code"
+                v-model="telCode"
+                slot="prepend"
+                placeholder="请选择"
+                style="width: 80px;"
+              >
+                <el-option label="+86" value="86">+86</el-option>
+                <el-option label="+120" value="120">+120</el-option>
+                <el-option label="+107" value="107">+107</el-option>
+              </el-select>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="code">
+            <el-input
+              @keyup.enter.native="submit"
+              v-model="forgetPassForm.code"
+              autocomplete="off"
+              maxlength="6"
+              placeholder="请输入验证码"
+            >
+              <el-button
+                type="text"
+                :disabled="!canGetcode"
+                slot="append"
+                class="get-code"
+                :class="canGetcode ? 'canGetcode' : ''"
+                @click.stop="getCode"
+                @input="
+                  forgetPassForm.code = forgetPassForm.code.replace(/\s/g, '')
+                "
+                >{{ codeTip }}</el-button
+              >
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="password" ref="password">
+            <el-input
+              @keyup.enter.native="submit"
+              :type="showPassword ? 'text' : 'password'"
+              v-model="forgetPassForm.password"
+              auto-complete="off"
+              maxlength="15"
+              placeholder="请输入新密码"
+              @input="
+                forgetPassForm.password = forgetPassForm.password.replace(
+                  /\s|[\u4e00-\u9fa5]/g,
+                  ''
+                )
+              "
+            >
+              <i
+                class="el-icon-view el-input__icon"
+                :class="showPassword ? 'font-color' : ''"
+                slot="suffix"
+                @click="showPassword = !showPassword"
+              ></i>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="nextPassword" ref="nextPassword">
+            <el-input
+              @keyup.enter.native="submit"
+              :type="showNextPassword ? 'text' : 'password'"
+              v-model="forgetPassForm.nextPassword"
+              autocomplete="off"
+              maxlength="15"
+              placeholder="请再次输入新密码"
+              @input="
+                forgetPassForm.password = forgetPassForm.password.replace(
+                  /\s[\u4e00-\u9fa5]/g,
+                  ''
+                )
+              "
+            >
+              <i
+                class="el-icon-view el-input__icon"
+                :class="showNextPassword ? 'font-color' : ''"
+                slot="suffix"
+                @click="showNextPassword = !showNextPassword"
+              ></i>
+            </el-input>
+          </el-form-item>
+          <el-form-item style="margin: 28px 0 0 0">
+            <el-button
+              type="primary"
+              @click.native.prevent="submit"
+              class="forgetPass-submit"
+              >提 交
+            </el-button>
+          </el-form-item>
+        </el-form>
+      </el-scrollbar>
+    </el-row>
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import SimpleHeader from '~/components/SimpleHeader/index.vue'
 @Component({
-  components: {
-    SimpleHeader
-  }
+  layout: 'simpleContail'
 })
 export default class Regiser extends Vue {
   // @Model
@@ -284,12 +271,6 @@ export default class Regiser extends Vue {
   @media screen and (min-width: 750px) and (max-width: 850px) {
     height: 60px !important;
     line-height: 60px;
-  }
-}
-.forgetPass {
-  padding: 42px 0 0;
-  @media screen and (max-width: 750px) {
-    padding: 18px 0 0;
   }
 }
 .forgetPass-form-box {
