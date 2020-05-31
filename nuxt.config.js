@@ -40,7 +40,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
-  auth: {},
+  // auth: {},
   /*
    ** Build configuration
    */

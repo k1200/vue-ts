@@ -42,6 +42,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { apiGetAuthByUserName } from '~/api/auth.ts'
 const validateUserName = (rule: object, value: string, callback: Function) => {
   if (value === '') {
     callback(new Error('请输入账号'))
@@ -73,7 +74,8 @@ export default class UserLogin extends Vue {
     let refs: any = this.$refs
     refs[formName].validate((valid: Boolean) => {
       if (valid) {
-        this.$router.push('/')
+        apiGetAuthByUserName(this.loginForm)
+        // this.$router.push('/')
       } else {
         this.validateState = !this.validateState
         return false
