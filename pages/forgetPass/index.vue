@@ -51,6 +51,9 @@
               autocomplete="off"
               maxlength="6"
               placeholder="请输入验证码"
+              @input="
+                forgetPassForm.code = forgetPassForm.code.replace(/\s/g, '')
+              "
             >
               <el-button
                 type="text"
@@ -59,9 +62,6 @@
                 class="get-code"
                 :class="canGetcode ? 'canGetcode' : ''"
                 @click.stop="getCode"
-                @input="
-                  forgetPassForm.code = forgetPassForm.code.replace(/\s/g, '')
-                "
                 >{{ codeTip }}</el-button
               >
             </el-input>
@@ -128,6 +128,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { forget_pass } from '~/api/page/logo'
 @Component({
   layout: 'simpleContail'
 })
@@ -233,7 +234,11 @@ export default class Regiser extends Vue {
     }
   }
 
-  getCode() {}
+  getCode() {
+    forget_pass({ username: this.forgetPassForm.contactNumber }).then(res =>
+      console.log(res)
+    )
+  }
   supplierAgreement() {}
   submit() {
     let forgetPassForm: any = this.$refs.forgetPassForm

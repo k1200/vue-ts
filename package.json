@@ -17,7 +17,9 @@
     "animate.css": "^3.7.2",
     "cross-env": "^5.2.1",
     "element-ui": "^2.4.11",
+    "js-base64": "^2.5.2",
     "koa": "^2.6.2",
+    "nprogress": "^0.2.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
