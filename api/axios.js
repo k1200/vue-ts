@@ -12,7 +12,7 @@ import 'nprogress/nprogress.css' // progress bar style
 import { Base64 } from 'js-base64'
 import website from '~/conf/website'
 
-const BASIC_PATH = 'http://192.168.1.48:8001/jxg-boss-api/'
+const BASIC_PATH = 'http://192.168.1.48:1200'
 
 axios.defaults.timeout = 600000
 //返回其他状态吗
